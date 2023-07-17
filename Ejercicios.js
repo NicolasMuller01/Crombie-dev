@@ -33,6 +33,7 @@ console.log(promedioRangoEnUnArray([0, 1, 2, 3], 2, 3));
 // 4 Definir una función que devuelva TRUE si el argumento recibido como texto un palíndromo, osea que se lee de la misma forma de izquierda y derecha. Ejemplo de palíndromo "¿Acaso hubo búhos acá?".
 
 const palindromo = (texto) =>{
+
     let arrAlrevez = [];
     let arrTexto = texto.split("");
 
