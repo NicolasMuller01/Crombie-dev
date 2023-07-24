@@ -26,7 +26,7 @@ function transposeArray(arr) {
             newRow.push(arr[j][i]);
         } else {
             newRow.push(null);
-        }
+            
         }
         result.push(newRow);
     }
