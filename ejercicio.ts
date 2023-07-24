@@ -1,5 +1,3 @@
-const sumar = (a: number, b:number): number =>{
-return a + b;
-};
+const a:number = 1;
 
-console.log(sumar(1, 3));
+console.log(a)
