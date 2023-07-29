@@ -25,4 +25,3 @@ function solution(a: number[]): number[] {
      
     return aCopy;
 }
-

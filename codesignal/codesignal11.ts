@@ -12,7 +12,6 @@ function solution(n: number): boolean {
     for(let i:number = half; i < n.toString().length; i++ ){
         secondSum += parseInt(n.toString().charAt(i));
     }
-    
 
     if(firstSum === secondSum){
         return true
@@ -21,5 +20,3 @@ function solution(n: number): boolean {
     }
     
 }
-
-console.log(solution(1230))

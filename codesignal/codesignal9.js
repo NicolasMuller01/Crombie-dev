@@ -36,8 +36,3 @@ function solution(inputArray) {
     
     return arrFinal
 }
-
-console.log(solution(["enyky", 
-"benyky", 
-"yely", 
-"varennyky"]))

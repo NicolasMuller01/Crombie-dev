@@ -26,5 +26,3 @@ function solution(picture: string[]): string[] {
 
     return arrNew
 }
-
-solution(["ac", "dc"])
