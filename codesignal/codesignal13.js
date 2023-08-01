@@ -1,30 +1,42 @@
 function solution(inputString) {
-    return reverseOneP(inputString);
+    if (!inputString.includes("(") || !inputString.includes(")")) {
+        return inputString;
+    }
+    var valorFinal = reverseP(inputString);
+    while (valorFinal.includes("(")) {
+        valorFinal = reverseP(valorFinal);
+    }
+    return valorFinal;
 }
-console.log(solution("foo(bar(baz))blim"));
-function reverseOneP(inputString) {
-    var firstParenthesisIndex = inputString.indexOf('(');
-    var secondParenthesisIndex = inputString.indexOf(')');
-    var arrBeforeFirstParenthesis = '';
-    var arrBeforeSecondParenthesis = '';
-    var valueToReverse = [];
+function reverseP(inputString) {
+    var arrAux = [];
     var aux = "";
-    for (var i = 0; i < firstParenthesisIndex; i++) {
-        arrBeforeFirstParenthesis += inputString.charAt(i);
+    var counter = 0;
+    var arrDeleteFirstCloseParenthesis = [];
+    var openLastParenthesis = inputString.lastIndexOf("(");
+    while (counter < inputString.length) {
+        if (counter === openLastParenthesis) {
+            arrAux.push(aux);
+            aux = '';
+            counter++;
+            while (inputString[counter] !== ')') {
+                aux += inputString[counter];
+                counter++;
+            }
+            aux = aux.split('').reverse().join('');
+            arrAux.push(aux);
+            aux = '';
+        }
+        aux += inputString[counter];
+        counter++;
     }
-    console.log(arrBeforeFirstParenthesis);
-    for (var i = secondParenthesisIndex + 1; i < inputString.length; i++) {
-        arrBeforeSecondParenthesis += inputString.charAt(i);
-    }
-    console.log(arrBeforeSecondParenthesis);
-    for (var i = firstParenthesisIndex + 1; i < secondParenthesisIndex; i++) {
-        valueToReverse.push(inputString[i]);
-    }
-    console.log(valueToReverse.join(''));
-    aux = valueToReverse.reverse().join('');
+    arrDeleteFirstCloseParenthesis = aux.split('');
+    arrDeleteFirstCloseParenthesis.shift();
+    aux = arrDeleteFirstCloseParenthesis.join('');
+    arrAux.push(aux);
     console.log(aux);
-    aux = arrBeforeFirstParenthesis + aux + arrBeforeSecondParenthesis;
-    return aux;
+    aux = aux.split('').reverse().join('');
+    console.log(arrAux.join(''));
+    return arrAux.join('');
 }
-
-//incompleto
+console.log(solution("asdsada"));
